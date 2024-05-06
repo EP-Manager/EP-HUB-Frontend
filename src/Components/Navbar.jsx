@@ -36,7 +36,7 @@ const Navbar = () => {
         >
           Shop
         </Link>
-        <Link 
+        {/* <Link 
           to='/my-orders' 
           onClick={() => handleSetActiveLink('/my-orders')}
           className={`
@@ -44,7 +44,7 @@ const Navbar = () => {
           `}
         >
           My Orders
-        </Link>
+        </Link> */}
         <div className="flex flex-row gap-1">
           <Link 
             to='/login' 
