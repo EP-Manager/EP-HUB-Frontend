@@ -1,131 +1,131 @@
-import item1 from '../assets/item1.jpeg'
-import item2 from '../assets/item2.jpeg'
-import item3 from '../assets/item3.jpeg'
-import item4 from '../assets/item4.jpeg'
-import item5 from '../assets/item5.jpeg'
+// import item1 from '../assets/item1.jpeg'
+// import item2 from '../assets/item2.jpeg'
+// import item3 from '../assets/item3.jpeg'
+// import item4 from '../assets/item4.jpeg'
+// import item5 from '../assets/item5.jpeg'
 
-const items = [
-  {
-    "id": 1,
-    "image": item1,
-    "name": "Plastic 1",
-    "available": true,
-    "price": 10.99,
-    "address": "123 Main St, Anytown, USA"
-  },
-  {
-    "id": 2,
-    "image": item2,
-    "name": "Plastic 2",
-    "available": false,
-    "price": 15.99,
-    "address": "456 Oak St, Anytown, USA"
-  },
-  {
-    "id": 3,
-    "image": item3,
-    "name": "Plastic 3",
-    "available": true,
-    "price": 12.99,
-    "address": "789 Pine St, Anytown, USA"
-  },
-  {
-    "id": 4,
-    "image": item4,
-    "name": "Plastic 4",
-    "available": true,
-    "price": 9.99,
-    "address": "321 Elm St, Anytown, USA"
-  },
-  {
-    "id": 5,
-    "image": item5,
-    "name": "Plastic 5",
-    "available": false,
-    "price": 14.99,
-    "address": "654 Maple St, Anytown, USA"
-  },
-  {
-    "id": 1,
-    "image": item1,
-    "name": "Plastic 1",
-    "available": true,
-    "price": 10.99,
-    "address": "123 Main St, Anytown, USA"
-  },
-  {
-    "id": 2,
-    "image": item2,
-    "name": "Plastic 2",
-    "available": false,
-    "price": 15.99,
-    "address": "456 Oak St, Anytown, USA"
-  },
-  {
-    "id": 3,
-    "image": item3,
-    "name": "Plastic 3",
-    "available": true,
-    "price": 12.99,
-    "address": "789 Pine St, Anytown, USA"
-  },
-  {
-    "id": 4,
-    "image": item4,
-    "name": "Plastic 4",
-    "available": true,
-    "price": 9.99,
-    "address": "321 Elm St, Anytown, USA"
-  },
-  {
-    "id": 5,
-    "image": item5,
-    "name": "Plastic 5",
-    "available": false,
-    "price": 14.99,
-    "address": "654 Maple St, Anytown, USA"
-  },
-  {
-    "id": 1,
-    "image": item1,
-    "name": "Plastic 1",
-    "available": true,
-    "price": 10.99,
-    "address": "123 Main St, Anytown, USA"
-  },
-  {
-    "id": 2,
-    "image": item2,
-    "name": "Plastic 2",
-    "available": false,
-    "price": 15.99,
-    "address": "456 Oak St, Anytown, USA"
-  },
-  {
-    "id": 3,
-    "image": item3,
-    "name": "Plastic 3",
-    "available": true,
-    "price": 12.99,
-    "address": "789 Pine St, Anytown, USA"
-  },
-  {
-    "id": 4,
-    "image": item4,
-    "name": "Plastic 4",
-    "available": true,
-    "price": 9.99,
-    "address": "321 Elm St, Anytown, USA"
-  },
-  {
-    "id": 5,
-    "image": item5,
-    "name": "Plastic 5",
-    "available": false,
-    "price": 14.99,
-    "address": "654 Maple St, Anytown, USA"
-  }
-];
+// const items = [
+//   {
+//     "id": 1,
+//     "image": item1,
+//     "name": "Plastic 1",
+//     "available": true,
+//     "price": 10.99,
+//     "address": "123 Main St, Anytown, USA"
+//   },
+//   {
+//     "id": 2,
+//     "image": item2,
+//     "name": "Plastic 2",
+//     "available": false,
+//     "price": 15.99,
+//     "address": "456 Oak St, Anytown, USA"
+//   },
+//   {
+//     "id": 3,
+//     "image": item3,
+//     "name": "Plastic 3",
+//     "available": true,
+//     "price": 12.99,
+//     "address": "789 Pine St, Anytown, USA"
+//   },
+//   {
+//     "id": 4,
+//     "image": item4,
+//     "name": "Plastic 4",
+//     "available": true,
+//     "price": 9.99,
+//     "address": "321 Elm St, Anytown, USA"
+//   },
+//   {
+//     "id": 5,
+//     "image": item5,
+//     "name": "Plastic 5",
+//     "available": false,
+//     "price": 14.99,
+//     "address": "654 Maple St, Anytown, USA"
+//   },
+//   {
+//     "id": 1,
+//     "image": item1,
+//     "name": "Plastic 1",
+//     "available": true,
+//     "price": 10.99,
+//     "address": "123 Main St, Anytown, USA"
+//   },
+//   {
+//     "id": 2,
+//     "image": item2,
+//     "name": "Plastic 2",
+//     "available": false,
+//     "price": 15.99,
+//     "address": "456 Oak St, Anytown, USA"
+//   },
+//   {
+//     "id": 3,
+//     "image": item3,
+//     "name": "Plastic 3",
+//     "available": true,
+//     "price": 12.99,
+//     "address": "789 Pine St, Anytown, USA"
+//   },
+//   {
+//     "id": 4,
+//     "image": item4,
+//     "name": "Plastic 4",
+//     "available": true,
+//     "price": 9.99,
+//     "address": "321 Elm St, Anytown, USA"
+//   },
+//   {
+//     "id": 5,
+//     "image": item5,
+//     "name": "Plastic 5",
+//     "available": false,
+//     "price": 14.99,
+//     "address": "654 Maple St, Anytown, USA"
+//   },
+//   {
+//     "id": 1,
+//     "image": item1,
+//     "name": "Plastic 1",
+//     "available": true,
+//     "price": 10.99,
+//     "address": "123 Main St, Anytown, USA"
+//   },
+//   {
+//     "id": 2,
+//     "image": item2,
+//     "name": "Plastic 2",
+//     "available": false,
+//     "price": 15.99,
+//     "address": "456 Oak St, Anytown, USA"
+//   },
+//   {
+//     "id": 3,
+//     "image": item3,
+//     "name": "Plastic 3",
+//     "available": true,
+//     "price": 12.99,
+//     "address": "789 Pine St, Anytown, USA"
+//   },
+//   {
+//     "id": 4,
+//     "image": item4,
+//     "name": "Plastic 4",
+//     "available": true,
+//     "price": 9.99,
+//     "address": "321 Elm St, Anytown, USA"
+//   },
+//   {
+//     "id": 5,
+//     "image": item5,
+//     "name": "Plastic 5",
+//     "available": false,
+//     "price": 14.99,
+//     "address": "654 Maple St, Anytown, USA"
+//   }
+// ];
 
 const ItemCards = () => {
   return (
