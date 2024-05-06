@@ -1,4 +1,5 @@
-import Navbar from "../Components/Navbar";
+
+import SearchBar from "../Components/SearchBar";
 
 // JSON data for orders with plastic details and transaction type
 const ordersData = [
@@ -71,7 +72,7 @@ const MyOrders = () => {
   return (
     <div className="min-h-screen bg-gray-100">
       {/* Navbar */}
-      <Navbar />
+      <SearchBar />
 
       {/* Page Content */}
       <div className="container mx-auto px-4 py-8">

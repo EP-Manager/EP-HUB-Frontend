@@ -39,6 +39,7 @@ const SearchBar = () => {
         <div className="mr-12 flex flex-row items-center justify-center gap-5">
           <Link to="/buy" className={`mr-4 ${activeLink === 'Buy' ? 'font-semibold text-white underline' : ''}`} onClick={() => setActiveLink('Buy')}>Buy</Link>
           <Link to="/sell" className={`mr-4 ${activeLink === 'Sell' ? 'font-semibold text-white underline' : ''}`} onClick={() => setActiveLink('Sell')}>Sell</Link>
+          <Link to="/my-orders" className={`mr-4 ${activeLink === 'My Orders' ? 'font-semibold text-white underline' : ''}`} onClick={() => setActiveLink('My Orders')}>My Orders</Link>
         </div>
         <button onClick={handleLogout} className="bg-white text-black hover:bg-green-400 hover:text-white py-1 px-2 rounded">Logout</button>
       </div>
