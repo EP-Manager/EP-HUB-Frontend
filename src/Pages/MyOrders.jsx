@@ -71,7 +71,7 @@ const ordersData = [
 const MyOrders = () => {
   return (
     <div className="min-h-screen bg-gray-100">
-      {/* Navbar */}
+      {/* Searchbar */}
       <SearchBar />
 
       {/* Page Content */}

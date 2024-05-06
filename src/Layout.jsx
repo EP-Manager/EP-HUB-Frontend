@@ -5,6 +5,7 @@ import Login from "./Pages/Login"
 import Register from "./Pages/Register"
 import LandingPage from "./Pages/LandingPage"
 import SellingPage from "./Pages/SellingPage"
+import Profile from "./Pages/Profile"
 
 import { Routes, Route } from "react-router-dom"
 
@@ -21,6 +22,8 @@ const Layout = () => {
       <Route path="/register" element={<Register/>}/>
       <Route path="/buy" element={<LandingPage/>}/>
       <Route path="/sell" element={<SellingPage/>}/>
+      <Route path="/profile" element={<Profile/>}/>
+      <Route path="*" element={<h1>404 Not Found</h1>}/>
     </Routes>
   )
 }
