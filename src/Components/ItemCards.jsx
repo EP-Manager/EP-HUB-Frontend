@@ -1,3 +1,6 @@
+import { useEffect, useState } from "react";
+import axios from "axios";
+
 // import item1 from '../assets/item1.jpeg'
 // import item2 from '../assets/item2.jpeg'
 // import item3 from '../assets/item3.jpeg'
@@ -128,6 +131,15 @@
 // ];
 
 const ItemCards = () => {
+
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    axios.get('https://lordgrim.pythonanywhere.com/api/v1/order/')
+    .then(response => setItems(response.data))
+    .catch(error => console.error(error));
+  }, [])
+
   return (
     <div className='flex flex-col justify-center items-center mt-20'>
         <p className='text-5xl font-extrabold overflow-hidden opacity-70'>THE LATEST IN THE STORE!</p>
