@@ -1,7 +1,14 @@
+import SearchBar from "../Components/SearchBar"
 
 const Profile = () => {
   return (
-    <div>Profile</div>
+    
+    <>
+      <SearchBar/>
+      <div>
+        
+      </div>
+    </>
   )
 }
 
