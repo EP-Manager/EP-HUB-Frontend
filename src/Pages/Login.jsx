@@ -21,7 +21,7 @@ const Login = () => {
       // Save the user data to local storage
       localStorage.setItem('user', JSON.stringify(response.data));
       // Save the token to local storage
-      localStorage.setItem('token', response.data.token);
+      localStorage.setItem('token', response.data.access_token);
       navigate('/buy'); // Redirect to the home page
       alert('Logged in successfully');
     } catch(error) {
