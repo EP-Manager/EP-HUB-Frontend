@@ -36,6 +36,10 @@ const ItemDetails = () => {
   // Calculate the total price of the item
   const totalPrice = item ? quantity * item.unit_price : 0;
 
+  const handleBuy = (itemId) => {
+    // Make API call to purchase item
+  };
+
   return (
     <div>
       <SearchBar/>
@@ -48,6 +52,7 @@ const ItemDetails = () => {
           <p>Created by: {item.created_by}</p>
           <p>Date uploaded: {new Date(item.created_at).toLocaleDateString()}</p>
           <input type="number" value={quantity} onChange={handleQuantityChange} min="1" />
+          <button onClick={() => handleBuy(item.id, quantity)}>Buy</button>
         </>
       ) : (
         <p>Loading...</p>
