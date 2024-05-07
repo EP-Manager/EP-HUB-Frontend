@@ -13,12 +13,12 @@ const SearchBar = () => {
   // const history = useHistory(); 
 
   const handleLogout = () => {
-    // Perform any logout operations here
-    // For example, if you're using local storage to store user data:
-    localStorage.removeItem('user');
+    alert('You are now logged out.');
+
+    // Remove the user data from local storage
+    localStorage.clear()
 
     // Redirect to /home
-    // history.push('/home');
     navigate('/home');
   }
 

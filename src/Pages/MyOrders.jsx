@@ -1,113 +1,46 @@
-
-import SearchBar from "../Components/SearchBar";
-
-// JSON data for orders with plastic details and transaction type
-const ordersData = [
-  {
-    id: 12345,
-    date: "April 15, 2024",
-    totalAmount: 100,
-    plasticName: "PET Bottles",
-    transactionType: "Bought",
-  },
-  {
-    id: 12346,
-    date: "April 16, 2024",
-    totalAmount: 150,
-    plasticName: "HDPE Containers",
-    transactionType: "Sold",
-  },
-  {
-    id: 12347,
-    date: "April 17, 2024",
-    totalAmount: 200,
-    plasticName: "LDPE Bags",
-    transactionType: "Bought",
-  },
-  {
-    id: 12348,
-    date: "April 18, 2024",
-    totalAmount: 250,
-    plasticName: "PP Containers",
-    transactionType: "Sold",
-  },
-  {
-    id: 12349,
-    date: "April 19, 2024",
-    totalAmount: 300,
-    plasticName: "PS Foam",
-    transactionType: "Bought",
-  },
-  {
-    id: 12345,
-    date: "April 15, 2024",
-    totalAmount: 100,
-    plasticName: "PET Bottles",
-    transactionType: "Bought",
-  },
-  {
-    id: 12345,
-    date: "April 15, 2024",
-    totalAmount: 100,
-    plasticName: "PET Bottles",
-    transactionType: "Sold",
-  },
-  {
-    id: 12345,
-    date: "April 15, 2024",
-    totalAmount: 100,
-    plasticName: "PET Bottles",
-    transactionType: "Sold",
-  },
-  {
-    id: 12345,
-    date: "April 15, 2024",
-    totalAmount: 100,
-    plasticName: "PET Bottles",
-    transactionType: "Bought",
-  },
-];
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import SearchBar from '../Components/SearchBar';
 
 const MyOrders = () => {
+  const [orders, setOrders] = useState([]);
+
+  const token = localStorage.getItem('token');
+
+  useEffect(() => {
+    axios.get('https://lordgrim.pythonanywhere.com/api/v1/order/', {
+      headers: {
+        'Authorization': `Bearer ${token}` // Use the token from local storage
+      }
+    })
+    .then((response) => {
+      setOrders(response.data.data);
+      console.log(response.data.data);
+    })
+    .catch((error) => {
+      console.error('Error fetching orders:', error);
+    });
+  }, [token]);
+
   return (
-    <div className="min-h-screen bg-gray-100">
-      {/* Searchbar */}
-      <SearchBar />
-
-      {/* Page Content */}
-      <div className="container mx-auto px-4 py-8">
-        {/* <h1 className="text-2xl font-semibold mb-4">My Orders</h1> */}
-
-        {/* Orders List */}
-        <div className="bg-white p-6 rounded-md shadow-md">
-          {/* Map through ordersData array to display each order */}
-          {ordersData.length ? (
-            ordersData.map((order) => (
-              <div key={order.id} className="border-b pb-4 mb-4 flex justify-between items-center">
-                {/* Left Side - Order Details */}
-                <div>
-                  <h2 className="text-xl font-semibold mb-2">Order #{order.id}</h2>
-                  <p className="text-gray-600">Total Amount: ${order.totalAmount}</p>
-                  <p className="text-gray-600">Plastic Name: {order.plasticName}</p>
-                </div>
-
-                {/* Right Side - Date and Transaction Type */}
-                <div className="text-right">
-                  <p className="text-gray-600">Order Date: {order.date}</p>
-                  <p className={`text-gray-600 ${order.transactionType === "Bought" ? "text-green-500" : "text-red-500"}`}>Transaction Type: {order.transactionType}</p>
-                </div>
-              </div>
-            ))
-          ) : (
-            // <div className="text-center text-gray-500">
-            //   You haven't placed any orders yet.
-            // </div>
-            []
-          )}
-        </div>
+    <>
+      <SearchBar/>
+      <div className="flex flex-col items-center justify-center min-h-screen mt-6">
+        {Array.isArray(orders) ? orders.map((order) => (
+          <div key={order.id} className="flex w-full max-w-md p-4 bg-white rounded shadow-md mb-4">
+            <div className="flex-1 pr-4">
+              <p className="text-gray-800 text-lg font-semibold">Date: {order.date}</p>
+              <p className="text-gray-600">Order ID: {order.item}</p>
+              <p className="text-gray-600">Total Amount: {order.total_price}</p>
+            </div>
+            <div className="flex-1 pl-4 text-right">
+              <p className="text-gray-600">{order.order_type}</p>
+            </div>
+          </div>
+        )) : null}
       </div>
-    </div>
+    </>
   );
-};
+}
 
 export default MyOrders;
