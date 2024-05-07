@@ -6,10 +6,11 @@ import SearchBar from '../Components/SearchBar';
 const ItemDetails = () => {
   const { id } = useParams();
   const [item, setItem] = useState(null);
+  const [quantity, setQuantity] = useState(1);
 
   const token = localStorage.getItem('token');
 
-
+  // Fetch the item details from the API
   useEffect(() => {
     axios.get(`https://lordgrim.pythonanywhere.com//api/v1/shop_items/get/${id}`, {
       headers: {
@@ -27,18 +28,30 @@ const ItemDetails = () => {
       });
   }, [token, id]);
 
+  //To handle the quantity change of the item to be bought
+  const handleQuantityChange = (event) => {
+    setQuantity(event.target.value);
+  };
+
+  // Calculate the total price of the item
+  const totalPrice = item ? quantity * item.unit_price : 0;
+
   return (
     <div>
       <SearchBar/>
       {item ? (
-      <>
-        <h1>{item.name}</h1>
-        <p>{item.description}</p>
-        <p>Price: ${item.unit_price}</p>
-        <p>Created by: {item.created_by}</p>
-        <p>Date uploaded: {new Date(item.created_at).toLocaleDateString()}</p>
-      </>
-      ) : (<p>Loading...</p>)}
+        <>
+          <h1>{item.name}</h1>
+          <p>{item.description}</p>
+          <p>Unit Price: ${item.unit_price}</p>
+          <p>Total Price: ${totalPrice}</p>
+          <p>Created by: {item.created_by}</p>
+          <p>Date uploaded: {new Date(item.created_at).toLocaleDateString()}</p>
+          <input type="number" value={quantity} onChange={handleQuantityChange} min="1" />
+        </>
+      ) : (
+        <p>Loading...</p>
+      )}
     </div>
   );
 }
