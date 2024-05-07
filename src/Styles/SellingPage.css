@@ -1,5 +1,4 @@
 .listcr{
-    font-size: 23px;
     font-weight: 600;
     color: #333333;
     text-align: center;
@@ -57,10 +56,9 @@
     margin-top: 10px;
 }
 .fieldtitle{
-    font-size: 17px;
-    font-weight: 600;
+    font-size: 16px;
+    font-weight: 500;
     margin-bottom: 9px;
-    color: #333333;
 }
 .titlename{
     box-sizing: inherit;
@@ -68,16 +66,14 @@
 .field{
     border-radius: 10px;
     border: black;
-    background-color:rgb(250, 243, 243);
     height: 40px;
-    width: 80%;
+    width: 400px;
 }
 .desfield{
     border-radius: 10px;
     border: black;
-    background-color:rgb(250, 243, 243);
     height: 200px;
-    width: 80%;
+    width: 400px;
 }
 .rowgroup{
     webkit-box-flex: 1;
@@ -102,14 +98,14 @@
     width: 32rem;
     border: black;
 }
-.submitbot{
+/* .submitbot{
     background-color: rgb(121, 197, 121);
     color: aliceblue;
     margin-top: 1rem;
     padding-left: 100px;
     border-radius: 15px;
     width: 10rem;
-}
+} */
 
 
 
