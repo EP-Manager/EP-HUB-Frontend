@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import SearchBar from '../Components/SearchBar';
+import '../Styles/SellingPage.css';
 
 const SellingPage = () => {
   const [formData, setFormData] = useState({
@@ -32,54 +33,83 @@ const SellingPage = () => {
   return (
     <div>
       <SearchBar/>
-      <p>Create a Listing</p>
+      <div className='listcr'><p>Create a Listing</p></div>
       <form onSubmit={handleSubmit}>
-        <div>
-            <p>Upload the images</p>
-            <p>select all the files together</p>
+        <div className='imgadd'>
+           <div className='uploadtext'> <p>Upload the images</p></div>
+            <div className='selecttext'><p>Select all the files together</p></div>
+            
             <input type="file" name="image" onChange={handleChange} multiple />
         </div>
-        <div>
-            <p>Upload the videos</p>
+        <div className='rowvideo'>
+          <div className='videoupload'>
+           <div className='videotext'> <p>Upload the videos</p></div>
             <input type="file" name="video" accept="video/*" multiple onChange={handleChange} />
+          </div>
+        </div>
+        <div className='fieldtitle'>
+           <label>
+            <div className='titlename'>Title</div>
+             <div className='titlesub'>
+            <input type="text" name="title" maxLength={55} className='field' placeholder="Enter title" onChange={handleChange} />
+            </div>
+            </label> 
+            
         </div>
         <div>
-            <label>Title</label>
-            <input type="text" name="title" placeholder="Title" onChange={handleChange} />
+            <label><div classname='fieldtitle'>Description</div>
+            <textarea name="description" className='desfield' placeholder=" Enter Material Description" onChange={handleChange} />
+            </label>
         </div>
         <div>
-            <label>Description</label>
-            <textarea name="description" placeholder="Description" onChange={handleChange} />
-        </div>
-        <div>
-            <label>Category</label>
-            <select name="category" onChange={handleChange}>
-            <option value="">Select category</option>
-            <option value="cat1">cat1</option>
+            <label>
+              <div className='fieldtitle'>Category</div>
+               <select name="category" className='dropfield'  onChange={handleChange}>
+                <option value="">Select category</option>
+                <option value="cat1">cat1</option>
+           
             </select>
+            
+              </label>
+           
         </div>
-        <div>
-            <label>Condition</label>
-            <select name="condition" onChange={handleChange}>
-            <option value="">Select condition</option>
-            <option value="new">New</option>
-            <option value="used">Used</option>
-            </select>
+       
+          <label>
+            <div className='fieldtitle'>Condition</div>
+             <select name="condition" classname='dropfield'  onChange={handleChange}>
+               <option value="">Select condition</option>
+               <option value="new">New</option>
+               <option value="used">Used</option>
+             </select>
+          </label>
+    
+        <div className='fieldtitle'>
+            <label><div className='titlename'>Quantity</div>
+            <div className='titlesub'>
+            <input type="number" name="quantity" placeholder="Enter quantity " onChange={handleChange} />
+            </div>
+            </label>
+            
         </div>
-        <div>
-            <label>Quantity</label>
-            <input type="number" name="quantity" placeholder="Quantity" onChange={handleChange} />
+        <div className='fieldtitle'>
+            <label><div className='titlename'>Price</div>
+            <div className='titlesub'>
+            <input type="number" name="price" placeholder=" Enter Price" onChange={handleChange} />
+            </div>
+            </label>
+           
         </div>
-        <div>
-            <label>Price</label>
-            <input type="number" name="price" placeholder="Price" onChange={handleChange} />
+        <div className='fieldtitle'>
+            <label><div className='titlename'>
+              Address</div>
+              <div className='titlesub'>
+              <input type="text" name="address" placeholder="Address" onChange={handleChange} />
+              </div>
+              </label>
+            
         </div>
-        <div>
-            <label>Address</label>
-            <input type="text" name="address" placeholder="Address" onChange={handleChange} />
-        </div>
-        <div>
-          <button type="submit">Submit</button>
+        <div  >
+          <button className='submitbot' type="submit">Submit</button>
         </div>
       </form>
     </div>

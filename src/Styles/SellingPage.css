@@ -1,0 +1,116 @@
+.listcr{
+    font-size: 23px;
+    font-weight: 600;
+    color: #333333;
+    text-align: center;
+    margin-bottom: 25px;
+    margin-top: 60px;
+}
+.imgadd{
+    position: relative;
+    margin-bottom: 14px;
+    cursor: default;
+    background: #f7f7f7;
+    width: 80%;
+    height: 425px;
+    text-align: center;
+    border-radius: 10px;
+    
+}
+.uploadtext{
+    font-size: 18px;
+    font-weight: 500;
+    color: #333333;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+.selecttext{
+    font-size: 15px;
+    font-weight: 450;
+    color: #333333;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+.rowvideo{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+.videoupload{
+    border: 1px solid #339A62;
+    display: inline-block;
+    padding: 15px;
+    border-radius: 5px;
+    color: #339A62;
+    cursor: pointer;
+    transition: all linear .2s;
+    text-align: center
+}
+.videotext{
+    font-size: 18px;
+    font-weight: 500;
+    color: #333333;
+    text-align: center;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+.fieldtitle{
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 9px;
+    color: #333333;
+}
+.titlename{
+    box-sizing: inherit;
+}
+.field{
+    border-radius: 10px;
+    border: black;
+    background-color:rgb(250, 243, 243);
+    height: 40px;
+    width: 80%;
+}
+.desfield{
+    border-radius: 10px;
+    border: black;
+    background-color:rgb(250, 243, 243);
+    height: 200px;
+    width: 80%;
+}
+.rowgroup{
+    webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    margin: 0 8px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+.dropfield{
+    border-radius: 10px;
+    background-color:rgba(250,243,243);
+    height: 35px;
+    width: 32rem;
+    border: black;
+}
+.confield{
+    border-radius: 10px;
+    background-color:rgba(250,243,243);
+    height: 35px;
+    width: 32rem;
+    border: black;
+}
+.submitbot{
+    background-color: rgb(121, 197, 121);
+    color: aliceblue;
+    margin-top: 1rem;
+    padding-left: 100px;
+    border-radius: 15px;
+    width: 10rem;
+}
+
+
+
+
