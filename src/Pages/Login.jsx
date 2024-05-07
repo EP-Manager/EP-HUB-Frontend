@@ -18,7 +18,10 @@ const Login = () => {
         password: password
       });
       console.log(response.data)
+      // Save the user data to local storage
       localStorage.setItem('user', JSON.stringify(response.data));
+      // Save the token to local storage
+      localStorage.setItem('token', response.data.token);
       navigate('/buy'); // Redirect to the home page
       alert('Logged in successfully');
     } catch(error) {
