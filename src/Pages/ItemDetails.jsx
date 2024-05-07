@@ -36,7 +36,7 @@ const ItemDetails = () => {
         <p>{item.description}</p>
         <p>Price: ${item.unit_price}</p>
         <p>Created by: {item.created_by}</p>
-        <p>Date uploaded: {item.created_at}</p>
+        <p>Date uploaded: {new Date(item.created_at).toLocaleDateString()}</p>
       </>
       ) : (<p>Loading...</p>)}
     </div>
