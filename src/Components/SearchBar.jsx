@@ -1,11 +1,26 @@
 import { useState, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from '../assets/Ep-Hub.png';
+
+import profile from '../assets/profile-icon.png';
+// import { useHistory } from 'react-router-dom';
 
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [activeLink, setActiveLink] = useState('Buy');
   const inputRef = useRef();
+  const navigate = useNavigate();
+  // const history = useHistory(); 
+
+  const handleLogout = () => {
+    // Perform any logout operations here
+    // For example, if you're using local storage to store user data:
+    localStorage.removeItem('user');
+
+    // Redirect to /home
+    // history.push('/home');
+    navigate('/home');
+  }
 
   const handleSearch = (event) => {
     event.preventDefault();
@@ -26,8 +41,12 @@ const SearchBar = () => {
         <div className="mr-12 flex flex-row items-center justify-center gap-5">
           <Link to="/buy" className={`mr-4 ${activeLink === 'Buy' ? 'font-semibold text-white underline' : ''}`} onClick={() => setActiveLink('Buy')}>Buy</Link>
           <Link to="/sell" className={`mr-4 ${activeLink === 'Sell' ? 'font-semibold text-white underline' : ''}`} onClick={() => setActiveLink('Sell')}>Sell</Link>
+          <Link to="/my-orders" className={`mr-4 ${activeLink === 'My Orders' ? 'font-semibold text-white underline' : ''}`} onClick={() => setActiveLink('My Orders')}>My Orders</Link>
+          <Link to="/profile" className={`mr-4 ${activeLink === 'Profile' ? 'font-semibold text-white underline' : ''}`} onClick={() => setActiveLink('Profile')}>
+            <img src={profile} alt="profile-icon" className="h-7 rounded-full" />
+          </Link>
         </div>
-        <button className="bg-white text-black hover:bg-green-400 hover:text-white py-1 px-2 rounded">Logout</button>
+        <button onClick={handleLogout} className="bg-white text-black hover:bg-green-400 hover:text-white py-1 px-2 rounded mr-5">Logout</button>
       </div>
     </div>
   );
