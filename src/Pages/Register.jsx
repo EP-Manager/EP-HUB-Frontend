@@ -37,6 +37,8 @@ const Register = () => {
       // navigate('/buy');
       if(response.statusText === "Created"){
         setIsRegistered(true);
+      // Store the token in local storage
+        localStorage.setItem('token', response.data.token);
       }
     } catch (error) {
       console.error(error);
@@ -87,6 +89,7 @@ const Register = () => {
             </form>
           </div>
         </div>
+        <OTPVerify/>
       </div>
       )}
       

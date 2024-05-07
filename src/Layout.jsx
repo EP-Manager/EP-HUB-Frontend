@@ -6,10 +6,9 @@ import Register from "./Pages/Register"
 import LandingPage from "./Pages/LandingPage"
 import SellingPage from "./Pages/SellingPage"
 import Profile from "./Pages/Profile"
+import ItemDetails from "./Pages/ItemDetails"
 
 import { Routes, Route } from "react-router-dom"
-
-
 
 const Layout = () => {
   return (
@@ -23,6 +22,7 @@ const Layout = () => {
       <Route path="/buy" element={<LandingPage/>}/>
       <Route path="/sell" element={<SellingPage/>}/>
       <Route path="/profile" element={<Profile/>}/>
+      <Route path='/item-details/:id' element={<ItemDetails/>}/>
       <Route path="*" element={<h1>404 Not Found</h1>}/>
     </Routes>
   )

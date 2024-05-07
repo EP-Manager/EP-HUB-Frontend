@@ -42,7 +42,7 @@ const Roles = () => {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, []);                          
   
   return (
     <section className="h-screen w-full flex flex-col items-center mt-24">
