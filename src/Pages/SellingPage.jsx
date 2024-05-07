@@ -57,7 +57,7 @@ const SellingPage = () => {
             
         </div>
         <div>
-            <label><div classname='fieldtitle'>Description</div>
+            <label><div className='fieldtitle'>Description</div>
             <textarea name="description" className='desfield' placeholder=" Enter Material Description" onChange={handleChange} />
             </label>
         </div>
@@ -76,7 +76,7 @@ const SellingPage = () => {
        
           <label>
             <div className='fieldtitle'>Condition</div>
-             <select name="condition" classname='dropfield'  onChange={handleChange}>
+             <select name="condition" className='dropfield'  onChange={handleChange}>
                <option value="">Select condition</option>
                <option value="new">New</option>
                <option value="used">Used</option>
