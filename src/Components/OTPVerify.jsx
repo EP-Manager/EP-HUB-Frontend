@@ -13,7 +13,7 @@ const OTPVerify = () => {
       const response = await axios.post('https://lordgrim.pythonanywhere.com/api/v1/auth/verify-email/', { otp: OTP});
         console.log(response.data);
         // OTP verification successful
-        navigate('/buy');
+        navigate('/login');
         alert('OTP verification successful')
       
     } catch (error) {
