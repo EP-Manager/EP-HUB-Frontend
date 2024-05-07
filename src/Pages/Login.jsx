@@ -24,7 +24,7 @@ const Login = () => {
             Password:
             <input type="password" value={password} onChange={e => setPassword(e.target.value)} required className="form-input" />
           </label>
-          <button type="submit" className="submit-button">Login</button>
+          <button type="submit" className="submit-button bg-green-300 hover:bg-green-700 ease-in-out transition 3s">Login</button>
         </form>
       </div>
     </>
