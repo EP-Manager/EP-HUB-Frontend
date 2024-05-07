@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Navbar from '../Components/Navbar';
+import '../Styles/Login.css'; // Import the CSS file
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -7,25 +8,26 @@ const Login = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Handle form submission here
     console.log(`Email: ${email}, Password: ${password}`);
   };
 
   return (
-    <div>
+    <>
       <Navbar/>
-      <form onSubmit={handleSubmit}>
-        <label>
+      <div className="login-container">
+      <form onSubmit={handleSubmit} className="login-form">
+        <label className="form-label">
           Email:
-          <input type="email" value={email} onChange={e => setEmail(e.target.value)} required />
+          <input type="email" value={email} onChange={e => setEmail(e.target.value)} required className="form-input" />
         </label>
-        <label>
+        <label className="form-label">
           Password:
-          <input type="password" value={password} onChange={e => setPassword(e.target.value)} required />
+          <input type="password" value={password} onChange={e => setPassword(e.target.value)} required className="form-input" />
         </label>
-        <button type="submit">Login</button>
+        <button type="submit" className="submit-button">Login</button>
       </form>
-    </div>
+      </div>
+    </>
   );
 };
 
