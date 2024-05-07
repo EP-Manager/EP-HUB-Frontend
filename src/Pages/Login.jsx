@@ -15,17 +15,17 @@ const Login = () => {
     <>
       <Navbar/>
       <div className="login-container">
-      <form onSubmit={handleSubmit} className="login-form">
-        <label className="form-label">
-          Email:
-          <input type="email" value={email} onChange={e => setEmail(e.target.value)} required className="form-input" />
-        </label>
-        <label className="form-label">
-          Password:
-          <input type="password" value={password} onChange={e => setPassword(e.target.value)} required className="form-input" />
-        </label>
-        <button type="submit" className="submit-button">Login</button>
-      </form>
+        <form onSubmit={handleSubmit} className="login-form">
+          <label className="form-label">
+            Email:
+            <input type="email" value={email} onChange={e => setEmail(e.target.value)} required className="form-input" />
+          </label>
+          <label className="form-label">
+            Password:
+            <input type="password" value={password} onChange={e => setPassword(e.target.value)} required className="form-input" />
+          </label>
+          <button type="submit" className="submit-button">Login</button>
+        </form>
       </div>
     </>
   );
