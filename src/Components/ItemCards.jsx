@@ -1,5 +1,6 @@
 // import { useEffect, useState } from "react";
 // import axios from "axios";
+import { useNavigate } from 'react-router-dom/dist'
 
 import item1 from '../assets/item1.jpeg'
 import item2 from '../assets/item2.jpeg'
@@ -49,7 +50,7 @@ const items = [
     "address": "654 Maple St, Anytown, USA"
   },
   {
-    "id": 1,
+    "id": 6,
     "image": item1,
     "name": "Plastic 1",
     "available": true,
@@ -57,7 +58,7 @@ const items = [
     "address": "123 Main St, Anytown, USA"
   },
   {
-    "id": 2,
+    "id": 7,
     "image": item2,
     "name": "Plastic 2",
     "available": false,
@@ -65,7 +66,7 @@ const items = [
     "address": "456 Oak St, Anytown, USA"
   },
   {
-    "id": 3,
+    "id": 8,
     "image": item3,
     "name": "Plastic 3",
     "available": true,
@@ -73,7 +74,7 @@ const items = [
     "address": "789 Pine St, Anytown, USA"
   },
   {
-    "id": 4,
+    "id": 9,
     "image": item4,
     "name": "Plastic 4",
     "available": true,
@@ -81,7 +82,7 @@ const items = [
     "address": "321 Elm St, Anytown, USA"
   },
   {
-    "id": 5,
+    "id": 10,
     "image": item5,
     "name": "Plastic 5",
     "available": false,
@@ -89,7 +90,7 @@ const items = [
     "address": "654 Maple St, Anytown, USA"
   },
   {
-    "id": 1,
+    "id": 11,
     "image": item1,
     "name": "Plastic 1",
     "available": true,
@@ -97,7 +98,7 @@ const items = [
     "address": "123 Main St, Anytown, USA"
   },
   {
-    "id": 2,
+    "id": 12,
     "image": item2,
     "name": "Plastic 2",
     "available": false,
@@ -105,7 +106,7 @@ const items = [
     "address": "456 Oak St, Anytown, USA"
   },
   {
-    "id": 3,
+    "id": 13,
     "image": item3,
     "name": "Plastic 3",
     "available": true,
@@ -113,7 +114,7 @@ const items = [
     "address": "789 Pine St, Anytown, USA"
   },
   {
-    "id": 4,
+    "id": 14,
     "image": item4,
     "name": "Plastic 4",
     "available": true,
@@ -121,7 +122,7 @@ const items = [
     "address": "321 Elm St, Anytown, USA"
   },
   {
-    "id": 5,
+    "id": 15,
     "image": item5,
     "name": "Plastic 5",
     "available": false,
@@ -139,6 +140,8 @@ const ItemCards = () => {
   //   .then(response => setItems(response.data))
   //   .catch(error => console.error(error));
   // }, [])
+
+  const navigate = useNavigate();
 
   return (
     <div className='flex flex-col justify-center items-center mt-20'>
@@ -160,8 +163,10 @@ const ItemCards = () => {
             {/* <p className="text-gray-700 text-sm">
                 {item.address}
             </p> */}
-            <button className='bg-green-500 hover:bg-green-700 text-white text-sm p-1 rounded'>
-              BUY
+            <button className='bg-green-500 hover:bg-green-700 text-white text-sm p-1 rounded'
+              onClick={() => navigate(`/item-details/${item.id}`)}
+            >
+              Buy
             </button>
           </div>
         </div>
