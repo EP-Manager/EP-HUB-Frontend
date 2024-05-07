@@ -36,8 +36,31 @@ const ItemDetails = () => {
   // Calculate the total price of the item
   const totalPrice = item ? quantity * item.unit_price : 0;
 
-  const handleBuy = (itemId) => {
-    // Make API call to purchase item
+  const handleBuy = (itemId ,quantity) => {
+    // Create an order object to send to the API 
+    const orderData = {
+      item: itemId,
+      quantity: quantity,
+      total_price: quantity * item.unit_price,
+      centre: "efb7698e-f1fd-4ca8-8988-e5eab4f2fe9c", // Replace with actual centre ID
+      order_type: "BUY"
+    };
+
+    // Make a POST request to the API to create a new order
+    axios.post('https://lordgrim.pythonanywhere.com/api/v1/order/create/', orderData, {
+      headers: {
+        'Authorization': `Bearer ${token}` // Use the token from local storage
+      }
+    })
+      .then((response) => {
+        console.log(response.data);
+        alert('Order placed successfully!');
+      })
+      .catch((error) => {
+        console.error('Error creating order:', error);
+        alert('Error creating order. Please try again.');
+      });
+
   };
 
   return (
