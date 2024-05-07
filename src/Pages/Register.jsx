@@ -89,6 +89,7 @@ const Register = () => {
             </form>
           </div>
         </div>
+        <OTPVerify/>
       </div>
       )}
       
