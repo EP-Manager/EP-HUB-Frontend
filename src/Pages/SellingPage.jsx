@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import SearchBar from '../Components/SearchBar';
 import '../Styles/SellingPage.css';
+import axios from 'axios';
 
 const SellingPage = () => {
   const [formData, setFormData] = useState({
@@ -25,9 +26,29 @@ const SellingPage = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+  
+    const formDataToSubmit = new FormData();
+    Object.keys(formData).forEach((key) => {
+      formDataToSubmit.append(key, formData[key]);
+    });
+  
+    // Retrieve the token from local storage
+    const token = localStorage.getItem('token');
+    // Make a POST request to the API to create a new item 
+    try {
+      const response = await axios.post('https://lordgrim.pythonanywhere.com/api/v1/shop_items/create/', formDataToSubmit, {
+        headers: {
+          'Authorization': `Bearer ${token}` // Use the token from local storage
+        }
+      });
+      console.log(response.data);
+      alert('Item uploaded successfully!');
+    } catch (error) {
+      console.error('Error creating item:', error);
+      alert('Error creating item. Please try again.');
+    }
   };
 
   return (
