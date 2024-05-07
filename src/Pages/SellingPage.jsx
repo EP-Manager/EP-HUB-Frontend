@@ -7,12 +7,12 @@ const SellingPage = () => {
   const [formData, setFormData] = useState({
     image: [],
     video: null,
-    title: '',
+    name: '',
     description: '',
     category: '',
     condition: '',
     quantity: '',
-    price: '',
+    unit_price: '',
     address: ''
   });
 
@@ -73,7 +73,7 @@ const SellingPage = () => {
            <label>
             <div className='titlename text-sm'>Title</div>
              <div className='titlesub'>
-              <input type="text" name="title" maxLength={55} className='field text-sm p-3 bg-green-50' placeholder="Enter title" onChange={handleChange} />
+              <input type="text" name="name" maxLength={55} className='field text-sm p-3 bg-green-50' placeholder="Enter title" onChange={handleChange} />
             </div>
             </label> 
             
@@ -116,7 +116,7 @@ const SellingPage = () => {
           <div className='fieldtitle'>
               <label><div className='titlename'>Price</div>
               <div className='titlesub'>
-              <input type="number" name="price" placeholder="Enter Price" className='bg-green-50 p-2 text-sm rounded-md' onChange={handleChange} />
+              <input type="number" name="unit_price" placeholder="Enter Price" className='bg-green-50 p-2 text-sm rounded-md' onChange={handleChange} />
               </div>
               </label>
           </div>
