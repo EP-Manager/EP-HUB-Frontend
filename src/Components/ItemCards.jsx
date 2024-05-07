@@ -149,17 +149,20 @@ const ItemCards = () => {
           <img className="w-full h-44" src={item.image} alt={item.name} />
           <div className="px-6 py-1">
             <div className="font-bold text-xl">{item.name}</div>
-            <p className={`text-gray-700 text-xs ${ item.available ? 'text-green-600' : 'text-red-600' } `}>
+            {/* <p className={`text-gray-700 text-xs ${ item.available ? 'text-green-600' : 'text-red-600' } `}>
               {item.available ? 'Available' : 'Out of Stock'}
-            </p>
+            </p> */}
           </div>
-          <div className="px-6 py-2">
+          <div className="px-6 py-2 ">
             <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-bold text-black mr-2 mb-2">
               ${item.price}
             </span>
-            <p className="text-gray-700 text-base">
-              {item.address}
-            </p>
+            {/* <p className="text-gray-700 text-sm">
+                {item.address}
+            </p> */}
+            <button className='bg-green-500 hover:bg-green-700 text-white text-sm p-1 rounded'>
+              BUY
+            </button>
           </div>
         </div>
       ))}
