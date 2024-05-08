@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import SearchBar from '../Components/SearchBar';
 
+
 const SellingPage = () => {
   const [formData, setFormData] = useState({
     item: '',
@@ -10,50 +11,10 @@ const SellingPage = () => {
     price: ''
   });
 
-  const [items, setItems] = useState([]); //for storing the list of items
+  const [items, setItems] = useState([]); //for storing the list of items // Add this line
+  const [selectedItem, setSelectedItem] = useState(null); // Add this line
 
-  // const [centers, setCenters] = useState([]); //for storing the list of centers
-
-  const handleChange = (event) => {
-    setFormData({
-      ...formData,
-      [event.target.name]: event.target.value
-    });
-  };
-
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-
-    
-  //   if (!formData.item) {
-  //     alert('Please select an item before placing your order.');
-  //     return;
-  //   }
-
-  //   const token = localStorage.getItem('token');
-
-  //   axios.post('https://lordgrim.pythonanywhere.com/api/v1/order/create/', {
-  //     item: formData.item,
-  //     quantity: formData.quantity,
-  //     total_price: formData.price * formData.quantity,
-  //     centre: 'efb7698e-f1fd-4ca8-8988-e5eab4f2fe9c',
-  //     order_type: "SELL"
-  //   }, {
-  //     headers: {
-  //       'Authorization': `Bearer ${token}`
-  //     }
-  //   })
-  //   .then(response => {
-  //     console.log(response.data);
-  //     alert('Order placed successfully!');
-  //   })
-  //   .catch(error => {
-  //     console.error('Error posting order:', error);
-  //   });
-  // };
-
-  //for getting the list of items from the API
-  useEffect(() => {
+  const fetchItems = () => {
     axios.get('https://lordgrim.pythonanywhere.com/api/v1/shop_items/all/', {
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -66,6 +27,32 @@ const SellingPage = () => {
       .catch(error => {
         console.error('Error fetching items:', error);
       });
+  };
+
+  const handleChange = (event) => {
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value
+    });
+
+    if (event.target.name === 'item') {
+      fetchItems(); // Call the fetchItems function here
+    }
+
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value
+    });
+
+    if (event.target.name === 'item') {
+      const item = items.find(item => item.id === event.target.value);
+      setSelectedItem(item); // Update the selected item
+    }
+  };
+
+  //for getting the list of items from the API
+  useEffect(() => {
+    fetchItems();
   }, []);
 
   return (
@@ -80,9 +67,16 @@ const SellingPage = () => {
               <div className='titlesub'>
               <select name="item" className='field text-sm p-3 bg-green-50' onChange={handleChange}>
                 {items.map(item => (
-                  <option key={item.id} value={item.id}>{item.name}</option>
+                  <>
+                    <option key={item.id} value={item.id}>{item.name}</option>
+                  </>
                 ))}
               </select>
+              {selectedItem && ( // Display the unit price of the selected item
+                  <div>
+                    <p>Unit price: {selectedItem.unit_price}</p>
+                  </div>
+                )}
               </div>
             </label>  
           </div>
@@ -105,7 +99,7 @@ const SellingPage = () => {
               </label>
             </div>
             <div className='fieldtitle'>
-              <label><div className='titlename'>Price</div>
+              <label><div className='titlename'>Total Price</div>
                 <div className='titlesub'>
                   <input type="number" name="price" placeholder="Enter price" className='bg-green-50 p-2 text-sm rounded-md' onChange={handleChange} />
                 </div>
@@ -118,5 +112,6 @@ const SellingPage = () => {
     </>
   );
 };
+
 
 export default SellingPage;
