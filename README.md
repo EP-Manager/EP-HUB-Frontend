@@ -9,13 +9,15 @@ Together, we can turn the tide against plastic pollution and build a more resili
 ## To Use the project code, do the following steps:
 
 ### Clone the repository
-git clone <repository-url>
+git clone https://github.com/akashmn/EP-Manager-Frontend.git
 
 ### Navigate to the cloned repository
-cd <repository-directory>
+cd EP-Manager-Frontend
 
-### Install the modules using yarn
+### Install the node-modules using yarn
 yarn
 
 ### Start the development server
 yarn run dev
+
+### Enjoy Coding!!!
