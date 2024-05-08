@@ -34,6 +34,7 @@ const Register = () => {
       const response = await axios.post("https://lordgrim.pythonanywhere.com/api/v1/auth/register/", formData);
       console.log(response.data);
       console.log(response);
+      alert('Registeration Sucessful!');
       // navigate('/buy');
       if(response.statusText === "Created"){
         setIsRegistered(true);
@@ -42,6 +43,7 @@ const Register = () => {
       }
     } catch (error) {
       console.error(error);
+      alert('Something went wrong. Please try again.');
     }
   };
 
