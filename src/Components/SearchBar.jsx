@@ -46,7 +46,7 @@ const SearchBar = () => {
             <img src={profile} alt="profile-icon" className="h-7 rounded-full" />
           </Link> */}
         </div>
-        <button onClick={handleLogout} className="bg-white text-black hover:bg-green-400 hover:text-white py-1 px-2 rounded mr-5">Logout</button>
+        <button onClick={handleLogout} className="bg-green-300 text-black hover:bg-green-700 hover:text-white py-1 px-2 rounded mr-5">Logout</button>
       </div>
     </div>
   );

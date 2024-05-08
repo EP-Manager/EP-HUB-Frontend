@@ -84,7 +84,7 @@ const Register = () => {
                   <option>Chengannur</option>
                   {/* Add more options here */}
                 </select>
-                <input type='submit' value='Register' />
+                <center><button className='bg-green-300 hover:bg-green-700 mt-6 p-2 rounded-2xl text-black hover:text-white font-semibold' type='submit'>REGISTER</button></center>
               </div>
             </form>
           </div>
