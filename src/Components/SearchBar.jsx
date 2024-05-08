@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logo from '../assets/Ep-Hub.png';
 
-import profile from '../assets/profile-icon.png';
+// import profile from '../assets/profile-icon.png';
 // import { useHistory } from 'react-router-dom';
 
 const SearchBar = () => {
@@ -42,11 +42,11 @@ const SearchBar = () => {
           <Link to="/buy" className={`mr-4 ${activeLink === 'Buy' ? 'font-semibold text-white underline' : ''}`} onClick={() => setActiveLink('Buy')}>Buy</Link>
           <Link to="/sell" className={`mr-4 ${activeLink === 'Sell' ? 'font-semibold text-white underline' : ''}`} onClick={() => setActiveLink('Sell')}>Sell</Link>
           <Link to="/my-orders" className={`mr-4 ${activeLink === 'My Orders' ? 'font-semibold text-white underline' : ''}`} onClick={() => setActiveLink('My Orders')}>My Orders</Link>
-          <Link to="/profile" className={`mr-4 ${activeLink === 'Profile' ? 'font-semibold text-white underline' : ''}`} onClick={() => setActiveLink('Profile')}>
+          {/* <Link to="/profile" className={`mr-4 ${activeLink === 'Profile' ? 'font-semibold text-white underline' : ''}`} onClick={() => setActiveLink('Profile')}>
             <img src={profile} alt="profile-icon" className="h-7 rounded-full" />
-          </Link>
+          </Link> */}
         </div>
-        <button onClick={handleLogout} className="bg-white text-black hover:bg-green-400 hover:text-white py-1 px-2 rounded mr-5">Logout</button>
+        <button onClick={handleLogout} className="bg-green-300 text-black hover:bg-green-700 hover:text-white py-1 px-2 rounded mr-5">Logout</button>
       </div>
     </div>
   );

@@ -54,15 +54,15 @@ const Register = () => {
         </div>
       ) : (
         <div className='container'>
-        <div className='content'>
+        <div className='content flex flex-row ml-72 mt-12 gap-6'>
           <div className='img-box'>
             <img src={demo} alt="" />
           </div>
-          <div className='box'>
+          <div className='box py-4'>
             <div>
-              <h2 className='texty'><u>REGISTER</u></h2>
+              <h2 className='text-2xl overflow-hidden'><u>REGISTER</u></h2>
             </div>
-            <form className='inner-box' onSubmit={handleSubmit}>
+            <form className='inner-box py-4' onSubmit={handleSubmit}>
               <div className='abc'>
                 <p>FIRST NAME</p>
                 <input className='rt' type='text' name='first_name' onChange={handleChange} />
@@ -84,7 +84,7 @@ const Register = () => {
                   <option>Chengannur</option>
                   {/* Add more options here */}
                 </select>
-                <input type='submit' value='Register' />
+                <center><button className='bg-green-300 hover:bg-green-700 mt-6 p-2 rounded-2xl text-black hover:text-white font-semibold' type='submit'>REGISTER</button></center>
               </div>
             </form>
           </div>

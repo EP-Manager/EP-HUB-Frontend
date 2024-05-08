@@ -17,7 +17,7 @@ import 'swiper/css/scrollbar';
 
 const Roles = () => {
 
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  // const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [noSlides, setNoSlides] = useState(1);
 
   useEffect(() => {
@@ -32,7 +32,7 @@ const Roles = () => {
         setNoSlides(3);
       }
 
-      setWindowWidth(width);
+      // setWindowWidth(width);
     };
 
     handleResize(); // Initial setup
@@ -68,18 +68,8 @@ const Roles = () => {
         <div className='flex flex-col w-56 h-full pb-5 justify-center '>
               <img className='h-48 rounded-t-lg' src={jobSeeker} alt="image" />
               <div className='flex  flex-col w-56 p-3'>
-                <p className='text-md font-bold'>Course</p>
-                <p className='text-xs font-light'>Course details, mentors, and others </p>
-              </div>
-            </div>
-      </SwiperSlide>
-
-      <SwiperSlide>
-        <div className='flex flex-col w-56 h-full pb-5 justify-center '>
-              <img className='h-48 rounded-t-lg' src={sell} alt="image" />
-              <div className='flex  flex-col w-56 p-3'>
-                <p className='text-md font-bold'>Course</p>
-                <p className='text-xs font-light'>Course details, mentors, and others </p>
+                <p className='text-md font-bold'>JOB SEEKER</p>
+                <p className='text-xs font-light'>We provide you with a job opprotunity and get the rewards on the go. </p>
               </div>
             </div>
       </SwiperSlide>
@@ -88,8 +78,18 @@ const Roles = () => {
         <div className='flex flex-col w-56 h-full pb-5 justify-center '>
               <img className='h-48 rounded-t-lg' src={buy} alt="image" />
               <div className='flex  flex-col w-56 p-3'>
-                <p className='text-md font-bold'>Course</p>
-                <p className='text-xs font-light'>Course details, mentors, and others </p>
+                <p className='text-md font-bold'>BUYER</p>
+                <p className='text-xs font-light'>Buy from varieties of e-plastics we provide</p>
+              </div>
+            </div>
+      </SwiperSlide>
+
+      <SwiperSlide>
+        <div className='flex flex-col w-56 h-full pb-5 justify-center '>
+              <img className='h-48 rounded-t-lg' src={sell} alt="image" />
+              <div className='flex  flex-col w-56 p-3'>
+                <p className='text-md font-bold'>SELLER</p>
+                <p className='text-xs font-light'>You can also sell the e-plastics from your homes.</p>
               </div>
             </div>
       </SwiperSlide>

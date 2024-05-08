@@ -34,14 +34,15 @@ const Login = () => {
   return (
     <>
       <Navbar/>
-      <div className="login-container">
+      <div className="login-container gap-4">
+        <p className='text-sm opacity-60 font-semibold'>Enter your credentials</p>
         <form onSubmit={handleSubmit} className="login-form">
-          <label className="form-label">
-            Email:
+          <label className="form-label opacity-65">
+            Email
             <input type="email" value={email} onChange={e => setEmail(e.target.value)} required className="form-input" />
           </label>
-          <label className="form-label">
-            Password:
+          <label className="form-label opacity-65">
+            Password
             <input type="password" value={password} onChange={e => setPassword(e.target.value)} required className="form-input" />
           </label>
           <button type="submit" className="submit-button bg-green-300 hover:bg-green-700 ease-in-out transition 3s">Login</button>
