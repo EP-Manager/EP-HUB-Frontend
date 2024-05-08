@@ -49,24 +49,24 @@ const Profile = () => {
     });
   }, [token])
 
-  const handleRoleChange = (event) => {
-    const selectedRole = roles.find(role => role.name === event.target.value);
-    axios.post('https://lordgrim.pythonanywhere.com/api/v1/role/user-role/create/', {
-      user_id: user.id,
-      role_id: selectedRole.id
-    }, {
-      headers: {
-        'Authorization': `Bearer ${token}`
-      }
+  // const handleRoleChange = (event) => {
+  //   const selectedRole = roles.find(role => role.name === event.target.value);
+  //   axios.post('https://lordgrim.pythonanywhere.com/api/v1/role/user-role/create/', {
+  //     user_id: user.id,
+  //     role_id: selectedRole.id
+  //   }, {
+  //     headers: {
+  //       'Authorization': `Bearer ${token}`
+  //     }
     
-    })
-    .then(response => {
-      console.log(response.data.data);
-    })
-    .catch(error => {
-      console.error('Error posting user role:', error);
-    });
-  };
+  //   })
+  //   .then(response => {
+  //     console.log(response.data.data);
+  //   })
+  //   .catch(error => {
+  //     console.error('Error posting user role:', error);
+  //   });
+  // };
 
   return (
     <>
@@ -94,11 +94,11 @@ const Profile = () => {
                 </div>
                 <div className="text-sm leading-5 text-gray-600 mt-6">
                   <strong>Role:</strong>
-                  <select value={user.role} onChange={handleRoleChange} className="ml-2 h-10 w-24">
+                  {/* <select value={user.role} onChange={handleRoleChange} className="ml-2 h-10 w-24">
                     {Array.isArray(roles) ? (roles.map((role) => (
                       <option className='h-10 w-36' key={role.id} value={role.name}>{role.name}</option>
                     ))) : null}
-                    </select>
+                  </select> */}
                 </div>
               </div>
             </div>
