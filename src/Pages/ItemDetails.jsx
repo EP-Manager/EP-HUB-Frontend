@@ -76,7 +76,7 @@ const ItemDetails = () => {
           <p className="text-lg mb-1">Created by: {item.created_by}</p>
           <p className="text-lg mb-1">Date uploaded: {new Date(item.created_at).toLocaleDateString()}</p>
           <input type="number" value={quantity} onChange={handleQuantityChange} min="1" className="border-2 border-gray-300 rounded-md p-2 mb-2 w-full" />
-          <button onClick={() => handleBuy(item.id, quantity)} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full">Buy</button>
+          <button onClick={() => handleBuy(item.id, quantity)} className="bg-green-700 hover:bg-green-300 hover:text-black hover:opacity-65 ease-in-out transition 3s text-white font-bold py-2 px-4 rounded w-full">Buy</button>
         </div>
       ) : (
         <p className="text-lg">Loading...</p>
