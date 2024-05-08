@@ -73,8 +73,8 @@ const SellingPage = () => {
                 ))}
               </select>
               {selectedItem && ( // Display the unit price of the selected item
-                  <div>
-                    <p>Unit price: {selectedItem.unit_price}</p>
+                  <div className='mt-7'>
+                    <p className='text-sm'>Unit price: {selectedItem.unit_price}</p>
                   </div>
                 )}
               </div>
@@ -99,12 +99,15 @@ const SellingPage = () => {
               </label>
             </div>
             <div className='fieldtitle'>
-              <label><div className='titlename'>Total Price</div>
-                <div className='titlesub'>
-                  <input type="number" name="price" placeholder="Enter price" className='bg-green-50 p-2 text-sm rounded-md' onChange={handleChange} />
-                </div>
-              </label>
-            </div>
+  <label><div className='titlename'>Total Price</div>
+    <div className='titlesub'>
+      {selectedItem && formData.quantity ? 
+        <p className='bg-green-50 p-2 text-sm rounded-md'>{selectedItem.unit_price * formData.quantity}</p> 
+        : 'nil'
+      }
+    </div>
+  </label>
+</div>
           </div>
           <button type="submit" className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Sell Item</button>
         </form>
