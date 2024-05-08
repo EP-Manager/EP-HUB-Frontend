@@ -8,7 +8,9 @@ const SellingPage = () => {
     item: '',
     description: '',
     quantity: '',
-    price: ''
+    price: '',
+    centre: 'efb7698e-f1fd-4ca8-8988-e5eab4f2fe9c',
+    order_type: 'SELL',
   });
 
   const [items, setItems] = useState([]); //for storing the list of items // Add this line
@@ -55,12 +57,41 @@ const SellingPage = () => {
     fetchItems();
   }, []);
 
+
+  // to post the data to the API
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if (selectedItem && formData.quantity) {
+      const total_price = selectedItem.unit_price * formData.quantity;
+
+      try {
+        const response = await axios.post('https://lordgrim.pythonanywhere.com/api/v1/order/create/', {
+          item: selectedItem.id,
+          quantity: formData.quantity,
+          total_price: total_price,
+          order_type: formData.order_type,
+          centre: formData.centre
+        }, {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          }
+        });
+
+        console.log(response.data);
+        alert('Order placed successfully!');
+      } catch (error) {
+        console.error('Error creating order:', error);
+        alert('Error creating order. Please try again.');
+      }
+    }
+  };
   return (
     <>
       <SearchBar/>
       <div className='flex flex-col p-10'>
         <div className='listcr underline text-4xl p-1 h-12 overflow-hidden'><p><center>Create a Listing</center></p></div>
-        <form className='flex flex-col items-center justify-center gap-10 mt-10'>
+        <form className='flex flex-col items-center justify-center gap-10 mt-10' onSubmit={handleSubmit}>
           <div className='fieldtitle'>
             <label>
               <div className='titlename text-sm'>Item</div>
@@ -80,16 +111,6 @@ const SellingPage = () => {
               </div>
             </label>  
           </div>
-          {/* <div>
-            <label><div className='fieldtitle'>Description</div>
-              <textarea name="description" className='desfield text-sm p-3 bg-green-50' placeholder=" Enter Material Description" onChange={handleChange} />
-            </label>
-          </div> */}
-          {/* <select name="center" className='bg-green-50 p-2 text-sm rounded-md' onChange={handleChange}>
-            {centers.map(center => (
-            <option key={center.id} value={center.id}>{center.name}</option>
-          ))}
-          </select> */}
           <div className='flex gap-4'>
             <div className='fieldtitle'>
               <label><div className='titlename'>Quantity</div>
@@ -99,15 +120,16 @@ const SellingPage = () => {
               </label>
             </div>
             <div className='fieldtitle'>
-  <label><div className='titlename'>Total Price</div>
-    <div className='titlesub'>
-      {selectedItem && formData.quantity ? 
-        <p className='bg-green-50 p-2 text-sm rounded-md'>{selectedItem.unit_price * formData.quantity}</p> 
-        : 'nil'
-      }
-    </div>
-  </label>
-</div>
+          <label>
+          <div className='titlename'>Total Price</div>
+            <div className='titlesub'>
+              {selectedItem && formData.quantity ? 
+              <p className='bg-green-50 p-2 text-sm rounded-md'>{selectedItem.unit_price * formData.quantity}</p> 
+              : 'nil'
+            }
+            </div>
+            </label>
+          </div>
           </div>
           <button type="submit" className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Sell Item</button>
         </form>
