@@ -38,7 +38,7 @@ const ItemCards = () => {
           </div>
           <div className="px-6 py-2 ">
             <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-bold text-black mr-2 mb-2">${item.unit_price}</span>
-            <button className='bg-green-500 hover:bg-green-700 text-white text-sm p-1 rounded'
+            <button className='bg-green-700 hover:bg-green-300 hover:text-black hover:opacity-65 ease-in-out transition 3s text-white text-sm p-1 rounded'
               onClick={() => navigate(`/item-details/${item.id}`)}
             >
               Buy

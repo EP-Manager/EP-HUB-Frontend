@@ -31,7 +31,7 @@ const OTPVerify = () => {
           <div className="flex flex-col space-y-4">
             <label className="font-semibold">ENTER OTP</label>
             <input className="border p-2 rounded" type='text' value={OTP} onChange={(e) => setOTP(e.target.value)} />
-            <input className="bg-[#92E3A9] text-white p-2 rounded cursor-pointer" type='submit' value='Verify' />
+            <input className="bg-green-700 hover:bg-green-300 hover:text-black hover:opacity-65 ease-in-out transition 3s text-white p-2 rounded cursor-pointer" type='submit' value='Verify' />
           </div>
         </form>
       </div>
