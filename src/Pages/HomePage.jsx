@@ -11,8 +11,8 @@ const HomePage = () => {
     <div className="">
       <Navbar/>
       <AboutUs/>
-      <Roles/>
       <VisionMission/>
+      <Roles/>
       <Footer/>
     </div>
   )
