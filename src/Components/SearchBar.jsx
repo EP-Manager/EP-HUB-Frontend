@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logo from '../assets/Ep-Hub.png';
 
-import profile from '../assets/profile-icon.png';
+// import profile from '../assets/profile-icon.png';
 // import { useHistory } from 'react-router-dom';
 
 const SearchBar = () => {

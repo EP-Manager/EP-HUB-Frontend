@@ -17,7 +17,7 @@ import 'swiper/css/scrollbar';
 
 const Roles = () => {
 
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  // const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [noSlides, setNoSlides] = useState(1);
 
   useEffect(() => {
@@ -32,7 +32,7 @@ const Roles = () => {
         setNoSlides(3);
       }
 
-      setWindowWidth(width);
+      // setWindowWidth(width);
     };
 
     handleResize(); // Initial setup
