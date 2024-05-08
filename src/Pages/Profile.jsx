@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import axios from 'axios';
+
 import SearchBar from "../Components/SearchBar"
 
 const Profile = () => {
@@ -10,6 +12,8 @@ const Profile = () => {
     phone: '',
     role: 'buyer',
   });
+
+  const [roles, setRoles] = useState([])
 
   useEffect(() => {
     // Fetch user details from API or local storage here
@@ -24,11 +28,27 @@ const Profile = () => {
     setUser(fetchedUser);
   }, []);
 
-  const handleRoleChange = (event) => {
-    setUser({
-      ...user,
-      role: event.target.value,
+  // get the Access token from local storage
+  const token = localStorage.getItem('token');
+
+  // Fetch the roles available
+  useEffect(() => {
+    axios.get('https://lordgrim.pythonanywhere.com/api/v1/role/all/' , {
+      headers : {
+        'Authorization' : `Bearer ${token}`
+      }
+    })
+    .then((response) => {
+      setRoles(response.data.data);
+      console.log(response.data.data)
+    })
+    .catch((error) => {
+      console.error('Error fetching roles:', error);
     });
+  }, [token])
+
+  const handleRoleChange = (event) => {
+    setUser(prevUser => ({ ...prevUser, role: event.target.value }));
   };
 
   return (
@@ -57,11 +77,11 @@ const Profile = () => {
                 </div>
                 <div className="text-sm leading-5 text-gray-600 mt-6">
                   <strong>Role:</strong>
-                  <select value={user.role} onChange={handleRoleChange} className="ml-2">
-                    <option value="buyer">Buyer</option>
-                    <option value="seller">Seller</option>
-                    <option value="job-seeker">Job Seeker</option>
-                  </select>
+                  <select value={user.role} onChange={handleRoleChange} className="ml-2 h-10 w-24">
+                    {Array.isArray(roles) ? (roles.map((role) => (
+                      <option className='h-10 w-36' key={role.id} value={role.name}>{role.name}</option>
+                    ))) : null}
+                    </select>
                 </div>
               </div>
             </div>
