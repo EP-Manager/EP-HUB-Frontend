@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 
 import profile from '../assets/profile-icon.png';
 
@@ -15,8 +14,6 @@ const Profile = () => {
     role: 'buyer',
   });
 
-  const [roles, setRoles] = useState([])
-
   useEffect(() => {
     // Fetch user details from API or local storage here
     const fetchedUser = {
@@ -29,44 +26,6 @@ const Profile = () => {
     };
     setUser(fetchedUser);
   }, []);
-
-  // get the Access token from local storage
-  const token = localStorage.getItem('token');
-
-  // Fetch the roles available
-  useEffect(() => {
-    axios.get('https://lordgrim.pythonanywhere.com/api/v1/role/all/' , {
-      headers : {
-        'Authorization' : `Bearer ${token}`
-      }
-    })
-    .then((response) => {
-      setRoles(response.data.data);
-      console.log(response.data.data)
-    })
-    .catch((error) => {
-      console.error('Error fetching roles:', error);
-    });
-  }, [token])
-
-  // const handleRoleChange = (event) => {
-  //   const selectedRole = roles.find(role => role.name === event.target.value);
-  //   axios.post('https://lordgrim.pythonanywhere.com/api/v1/role/user-role/create/', {
-  //     user_id: user.id,
-  //     role_id: selectedRole.id
-  //   }, {
-  //     headers: {
-  //       'Authorization': `Bearer ${token}`
-  //     }
-    
-  //   })
-  //   .then(response => {
-  //     console.log(response.data.data);
-  //   })
-  //   .catch(error => {
-  //     console.error('Error posting user role:', error);
-  //   });
-  // };
 
   return (
     <>
@@ -91,14 +50,6 @@ const Profile = () => {
                 </div>
                 <div className="text-sm leading-5 text-gray-600 mt-6">
                   <strong>Phone:</strong> {user.phone}
-                </div>
-                <div className="text-sm leading-5 text-gray-600 mt-6">
-                  <strong>Role:</strong>
-                  {/* <select value={user.role} onChange={handleRoleChange} className="ml-2 h-10 w-24">
-                    {Array.isArray(roles) ? (roles.map((role) => (
-                      <option className='h-10 w-36' key={role.id} value={role.name}>{role.name}</option>
-                    ))) : null}
-                  </select> */}
                 </div>
               </div>
             </div>
