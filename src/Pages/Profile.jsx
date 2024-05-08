@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-
+import axios from 'axios';
 import profile from '../assets/profile-icon.png';
 
 import SearchBar from "../Components/SearchBar"
@@ -15,17 +15,23 @@ const Profile = () => {
   });
 
   useEffect(() => {
-    // Fetch user details from API or local storage here
-    const fetchedUser = {
-      profilePic: 'https://example.com/profile.jpg',
-      firstName: 'John',
-      lastName: 'Doe',
-      email: 'john.doe@example.com',
-      phone: '1234567890',
-      role: 'buyer',
-    };
-    setUser(fetchedUser);
+    // Fetch user details from API
+    axios.get('https://lordgrim.pythonanywhere.com/api/v1/user/all/', {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
+      }
+    
+    })
+      .then(response => {
+        const fetchedUser = response.data; // Adjust this line if the data is nested in the response
+        setUser(fetchedUser);
+        console.log(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching user data:', error);
+      });
   }, []);
+
 
   return (
     <>
